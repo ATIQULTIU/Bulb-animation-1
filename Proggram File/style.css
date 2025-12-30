@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #222 0%, #000 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Wire */
+.wire {
+  width: 2px;
+  height: 140px;
+  background: #444;
+}
+
+/* Bulb */
+.bulb {
+  width: 160px;
+  z-index: 2;
+  transform-origin: top center;
+  animation: swing 4s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Background glow */
+.light-bg {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle,
+    rgba(255,235,59,0.45),
+    rgba(255,235,59,0.15),
+    transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+/* Filament */
+.filament {
+  stroke: #444;
+  stroke-width: 3;
+  fill: none;
+  transition: 0.3s;
+}
+
+/* Glow */
+.glow {
+  fill: rgba(255,235,59,0);
+  transition: 0.4s;
+}
+
+/* ON State */
+.on .filament {
+  stroke: #ffcc00;
+  filter: drop-shadow(0 0 8px #ff9800);
+  animation: flicker 0.12s infinite alternate;
+}
+
+.on .glow {
+  fill: rgba(255,235,59,0.35);
+  animation: pulse 1.5s infinite;
+}
+
+.on + .light-bg {
+  opacity: 1;
+}
+
+@keyframes flicker {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Switch */
+.switch {
+  margin-top: 30px;
+  z-index: 3;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #333;
+  color: #fff;
+  border: 2px solid #555;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #555;
+  transform: scale(1.05);
+}

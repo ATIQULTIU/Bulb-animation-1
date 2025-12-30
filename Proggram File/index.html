@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="wire"></div>
+
+<!-- Bulb -->
+<svg class="bulb" viewBox="0 0 200 300" id="bulbSvg">
+  <!-- Glow -->
+  <circle class="glow" cx="100" cy="120" r="90"></circle>
+
+  <!-- Glass -->
+  <ellipse cx="100" cy="120" rx="80" ry="90"
+    fill="rgba(255,255,255,0.08)"
+    stroke="rgba(255,255,255,0.3)"
+    stroke-width="2"></ellipse>
+
+  <!-- Filament -->
+  <path class="filament"
+    d="M60 120 Q80 140 100 120 Q120 100 140 120"></path>
+
+  <!-- Base -->
+  <rect x="70" y="200" width="60" height="50" rx="8"
+    fill="url(#baseGrad)"></rect>
+
+  <defs>
+    <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#666"/>
+      <stop offset="100%" stop-color="#222"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Background glow -->
+<div class="light-bg"></div>
+
+<!-- Switch -->
+<div class="switch">
+  <button id="switchBtn">SWITCH</button>
+</div>
+
+<!-- Sounds -->
+<audio id="onSound" src="https://www.soundjay.com/switch/switch-1.mp3"></audio>
+<audio id="offSound" src="https://www.soundjay.com/switch/switch-2.mp3"></audio>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
